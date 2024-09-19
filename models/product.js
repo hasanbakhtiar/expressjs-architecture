@@ -10,7 +10,9 @@ const productSchema = Schema({
     active: {
         type: Boolean,
         default: true
-    }
+    },
+    // category:{type:Schema.Types.ObjectId, ref:"Category"}
+    categories: [{type:Schema.Types.ObjectId, ref:"Category"}]
 })
 
 const productValidate = (product) =>{
@@ -20,7 +22,9 @@ const productValidate = (product) =>{
         img: Joi.array(),
         title:Joi.string(),
         price:Joi.number(),
-        active:Joi.boolean()
+        active:Joi.boolean(),
+        // category:Joi.array()
+        categories:Joi.array()
     })
 
     return schema.validate(product);

@@ -108,7 +108,9 @@ exports.editProduct = async (req, res) => {
 
 
 exports.listproduct = async (req, res) => {
-    const product = await Product.find();
+    const product = await Product.find().populate("category","title -_id");
+    // const product = await Product.find();
+
     res.send(product);
 }
 

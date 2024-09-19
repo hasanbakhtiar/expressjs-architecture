@@ -10,8 +10,10 @@ app.use(express.json());
 // middleware end
 
 const productRoute = require('./routers/product');
+const categoryRoute = require('./routers/category');
 
 app.use('/product',productRoute);
+app.use('/category',categoryRoute);
 
 
 connectdb();
